@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.引入vue.js -->
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 3.使用插值表达式，渲染数据 -->
+        {{msg}}
+    </div>
+    <script>
+        // 2.new Vue实例
+        const app = new Vue({
+            // el 指定控制HTML容器范围 相当于选择器
+            el: ".app",
+            data: {
+                msg: "Hello World!"
+            }
+        })
+    </script>
+</body>
+
+</html>

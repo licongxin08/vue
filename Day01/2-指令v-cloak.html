@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app" v-cloak>
+        {{msg}}
+    </div>
+    <script>
+        //   v-cloak指令的用法
+        //   1、提供样式
+        //     [v-cloak]{
+        //       display: none;
+        //     }
+        //   2、在插值表达式所在的标签中添加v-cloak指令
+        //   背后的原理：先通过样式隐藏内容，然后在内存中进行值的替换，替换好之后再显示最终的结果
+        const app = new Vue({
+            el: ".app",
+            data: {
+                msg: "Hello World!"
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        div {
+            height: 300px;
+            width: 300px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- .stop 阻止冒泡 .prevent 阻止默认行为 .once 只执行一次 -->
+    <div id='app' v-cloak>
+        <div @click.once="divHandler">
+            <button @click.stop.once="btnHandler">按钮</button>
+            <a href="http://www.baidu.com" @click.stop.prevent="aHandler">百度一下</a>
+        </div>
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+            },
+            methods: {
+                btnHandler() {
+                    console.log("触发了按钮的事件");
+                },
+                divHandler() {
+                    console.log("触发了div的事件");
+                },
+                aHandler() {
+                    console.log("触发了a链接的事件");
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

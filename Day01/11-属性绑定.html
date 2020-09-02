@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- v-model 双向数据绑定  v-bind 属性绑定（单向数据绑定） 可以简写成 ： -->
+        <input type="text" v-bind:value='msg'>
+        <!-- 简写
+        <input type="text" :value='msg'> -->
+        <input type="text" v-model='msg'>
+        {{msg}}
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '文字'
+            },
+            methods: {},
+        })
+    </script>
+</body>
+
+</html>

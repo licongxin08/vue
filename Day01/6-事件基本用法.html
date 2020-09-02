@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <div>
+            <button v-on:click='doThis'>点击</button>
+            <button v-on:mouseover='msg=123'>点击1</button>{{msg}}
+            <button v-on:click='alert("123")'>点击2</button>
+            <!-- v-on:可以简写成@ -->
+            <!-- <button @click='alert("123")'>点击2</button> -->
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 123
+            },
+            // methods  中 主要是定义一些函数
+            methods: {
+                doThis: function () {
+                    alert("123")
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

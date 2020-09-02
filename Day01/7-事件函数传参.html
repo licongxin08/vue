@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click='add1'>按钮+100</button>
+        <button v-on:click='add2(100,$event)'>按钮+100</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                num: 10
+            },
+            methods: {
+                // 当事件函数没有参数时，e 就是事件对象
+                add1(e) {
+                    var res = e.target.innerHTML
+                    console.log(res);
+                    this.num += (res.substring(res.indexOf("+") + 1) - 0)
+                },
+                // 当事件有参数时，$event为事件对象，事件对象可以写在任意位置，但要一一对应
+                add2(num, event) {
+                    var res = event.target.innerHTML
+                    console.log(res);
+                    console.log(num + (res.substring(res.indexOf("+") + 1) - 0));
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

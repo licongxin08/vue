@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <style>
+        .section {
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        .active {
+            font-size: 40px;
+        }
+
+        .color {
+            color: yellowgreen
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- 属性绑定类名中，使用对象的方式绑定类名{k:v} k表示类名 v 一般是布尔值 -->
+        <div :class="{section:isSection,active:true}" class="color">文字</div>
+        <hr>
+        <!-- 第二种 对象形式 -->
+        <div :class="obj">文字</div>
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isSection: true,
+                obj: { section: true, active: false, color: true }
+            },
+            methods: {},
+        })
+    </script>
+</body>
+
+</html>

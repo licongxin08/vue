@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <input type="text" v-model='msg'>{{msg}}
+        <hr>
+        <input type="radio" v-model='gender' value="男">男
+        <input type="radio" v-model='gender' value="女">女
+        <br>
+        {{gender}}
+        <br>
+        <!-- 单个复选框 绑定布尔值 -->
+        <input type="checkbox" v-model='checked'>{{checked}}
+        <br>
+        <!-- 多个复选框 绑定数组 -->
+        <input type="checkbox" v-model='hobby' value="1">唱歌
+        <input type="checkbox" v-model='hobby' value="2">跳舞
+        <input type="checkbox" v-model='hobby' value="3">打篮球
+        <br>
+        {{hobby}}
+        <br>
+        <select v-model='language'>
+            <option value="1">中文</option>
+            <option value="2">英语</option>
+            <option value="3">日语</option>
+            <option value="4">德语</option>
+        </select>
+        {{language}}
+        <br>
+        <select v-model='language2' multiple>
+            <option value="1">中文</option>
+            <option value="2">英语</option>
+            <option value="3">日语</option>
+            <option value="4">德语</option>
+        </select>
+        {{language2}}
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 123,
+                gender: '男',
+                checked: false,
+                hobby: ["1"],
+                language: '',
+                language2: ''
+            },
+            methods: {},
+        })
+    </script>
+</body>
+
+</html>

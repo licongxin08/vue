@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        {{bigStr}}
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                str: 'abcdefg'
+            },
+            methods: {},
+            // 计算属性 基于data中的数据来进行操作 数据发生改变 计算属性也会重新计算
+            computed: {
+                // 形式上是一个函数  实际上是当成属性来用  
+                bigStr() {
+                    return this.str.toUpperCase()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

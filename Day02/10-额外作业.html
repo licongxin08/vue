@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app' v-gettime='time'></div>
+    <script src='./js/vue.js'></script>
+    <script>
+        var now = new Date().getTime();
+        Vue.directive('gettime', {
+            bind(el, binding) {
+                // console.log(binding.value);
+                timer = (now - binding.value) / 1000
+                // console.log(timer);
+                if (timer < 10000) {
+                    el.innerHTML = '刚刚'
+                } else {
+                    el.innerHTML = '1小时前'
+                }
+            }
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                time: 1599130665722
+            },
+            methods: {},
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <input type="text" v-aaa>
+    </div>
+    <div id='app2'>
+        <input type="text" v-color='msg'>
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        // 全局指令
+        // 自定义指令写在创建实例前面 指令名aaa可以 随便定义 el表示调用指令的元素 .focus是原生语法
+        Vue.directive('aaa', {
+            inserted(el) {
+                el.focus()
+            }
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+        })
+        // 局部指令 只能在定义的app2里面使用
+        const vh = new Vue({
+            el: '#app2',
+            data: {
+                msg: {
+                    color: 'skyblue'
+                }
+            },
+            methods: {},
+            directives: {
+                color: {
+                    bind(el, binding) {
+                        el.style.backgroundColor = binding.value.color;
+                    }
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
